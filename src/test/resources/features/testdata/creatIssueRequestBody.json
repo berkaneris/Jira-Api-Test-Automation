@@ -1,0 +1,30 @@
+{
+  "fields": {
+    "project": {
+      "key": "TATP"
+    },
+    "summary": "TEST - THIS IS THE SUMMARY OF THE ISSUE",
+    "labels": [
+      "POST",
+      "CREATE-ISSUE"
+    ],
+    "description": {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "text": "THIS IS THE DESCRIPTION OF THE ISSUE",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    "issuetype": {
+      "name": "Story"
+    }
+  }
+}
