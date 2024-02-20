@@ -1,6 +1,8 @@
 package com.inar.jira_api_test.stepdefinition;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.inar.jira_api.pojo.request.create_issue_request.*;
 import com.inar.jira_api.pojo.response.create_issue_response.CreateIssueRes;
 import com.inar.jira_api.utils.ConfigManager;
@@ -18,47 +20,89 @@ public class CreateIssueSteps extends BaseSteps {
 
     String createIssueEndpoint = ConfigManager.getProperty("create_issue_url");
 
-    Issue issue = new Issue();
-    Content content = new Content();
-    Text text = new Text();
-    Description description = new Description();
-    Fields fields = new Fields();
-    IssueType issuetype = new IssueType();
-
-    Project project = new Project();
+//    Issue issue = new Issue();
+//    Content content = new Content();
+//    Text text = new Text();
+//    Description description = new Description();
+//    Fields fields = new Fields();
+//    IssueType issuetype = new IssueType();
+//
+//    Project project = new Project();
     CreateIssueRes createIssueRes;
+
+    JsonObject issuePayload = new JsonObject();
 
 
 
     @When("the client sets the request body to create a new issue")
     public void theClientSetsTheRequestBodyToCreateANewIssue(DataTable dataTable) {
         Map<String,String> issueDetails = dataTable.asMap(String.class, String.class);
-        text.setText(issueDetails.get("contContentText"));
-        text.setType(issueDetails.get("contContentType"));
+//        text.setText(issueDetails.get("contContentText"));
+//        text.setType(issueDetails.get("contContentType"));
+//
+//        content.setType(issueDetails.get("contentType"));
+//        content.setContent(List.of(text));
+//
+//        description.setVersion(Integer.parseInt(issueDetails.get("descriptionVersion")));
+//        description.setType(issueDetails.get("descriptionType"));
+//        description.setContent(List.of(content));
+//
+//        fields.setProject(project);
+//        fields.setSummary(issueDetails.get("summary"));
+//        fields.setDescription(description);
+//        fields.setIssuetype(issuetype);
+//        fields.setLabels(Arrays.asList(issueDetails.get("labels").split(";")));
+//
+//        project.setKey(issueDetails.get("projectKey"));
+//        issuetype.setName(issueDetails.get("issueTypeName"));
+//
+//        issue.setFields(fields);
 
-        content.setType(issueDetails.get("contentType"));
-        content.setContent(List.of(text));
 
-        description.setVersion(Integer.parseInt(issueDetails.get("descriptionVersion")));
-        description.setType(issueDetails.get("descriptionType"));
-        description.setContent(List.of(content));
+        JsonObject fields = new JsonObject();
+        JsonObject description = new JsonObject();
+        JsonObject innerContent = new JsonObject();
+        JsonObject content = new JsonObject();
+        JsonObject issueType = new JsonObject();
+        JsonObject project = new JsonObject();
 
-        fields.setProject(project);
-        fields.setSummary(issueDetails.get("summary"));
-        fields.setDescription(description);
-        fields.setIssuetype(issuetype);
-        fields.setLabels(Arrays.asList(issueDetails.get("labels").split(";")));
+        innerContent.addProperty("text" ,issueDetails.get("contContentText"));
+        innerContent.addProperty("type" ,issueDetails.get("contContentType"));
 
-        project.setKey(issueDetails.get("projectKey"));
-        issuetype.setName(issueDetails.get("issueTypeName"));
+        JsonArray innerContentArray = new JsonArray();
+        innerContentArray.add(innerContent);
+        content.addProperty("type" ,issueDetails.get("contentType"));
+        content.add("content" , innerContentArray);
 
-        issue.setFields(fields);
+        JsonArray contentArray = new JsonArray();
+        contentArray.add(content);
+        description.addProperty("type" ,issueDetails.get("descriptionType"));
+        description.addProperty("version" ,Integer.parseInt(issueDetails.get("descriptionVersion")));
+        description.add("content" ,contentArray);
+
+        project.addProperty("key" ,issueDetails.get("projectKey"));
+        issueType.addProperty("name" , issueDetails.get("issueTypeName"));
+
+        String[] labels = issueDetails.get("labels").split(";");
+        JsonArray labelArray = new JsonArray();
+        for(String label: labels) {
+            labelArray.add(label);
+        }
+        fields.add("project" , project);
+        fields.addProperty("summary" , issueDetails.get("summary"));
+        fields.add("labels" , labelArray);
+        fields.add("description" , description);
+        fields.add("issuetype" , issueType);
+
+        issuePayload.add("fields" , fields);
+
     }
 
     @When("the client sends a POST request to create issue endpoint")
     public void theClientSendsAPOSTRequestToCreateIssueEndpoint() {
-        String requestBody = new Gson().toJson(issue);
-        response = request.contentType("application/json").body(requestBody).when().post(createIssueEndpoint);
+//        String requestBody = new Gson().toJson(issue);
+
+        response = request.contentType("application/json").body(String.valueOf(issuePayload)).when().post(createIssueEndpoint);
 
     }
 
@@ -74,6 +118,7 @@ public class CreateIssueSteps extends BaseSteps {
 
 
     }
+
 
 
 }
