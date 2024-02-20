@@ -1,0 +1,250 @@
+{
+  "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations,customfield_10010.requestTypePractice",
+  "id": "10158",
+  "self": "https://inar-academy-team4.atlassian.net/rest/api/3/issue/10158",
+  "key": "TATP-23",
+  "fields": {
+    "statuscategorychangedate": "2024-02-20T17:21:12.943+0300",
+    "issuetype": {
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/issuetype/10009",
+      "id": "10009",
+      "description": "Stories track functionality or features expressed as user goals.",
+      "iconUrl": "https://inar-academy-team4.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+      "name": "Story",
+      "subtask": false,
+      "avatarId": 10315,
+      "entityId": "779f8cf7-fa2d-485a-990b-558c3a88ebe2",
+      "hierarchyLevel": 0
+    },
+    "timespent": null,
+    "customfield_10030": null,
+    "project": {
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/project/10002",
+      "id": "10002",
+      "key": "TATP",
+      "name": "Team4-Api-Test-Project",
+      "projectTypeKey": "software",
+      "simplified": true,
+      "avatarUrls": {
+        "48x48": "https://inar-academy-team4.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10407",
+        "24x24": "https://inar-academy-team4.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10407?size=small",
+        "16x16": "https://inar-academy-team4.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10407?size=xsmall",
+        "32x32": "https://inar-academy-team4.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10407?size=medium"
+      }
+    },
+    "customfield_10033": null,
+    "fixVersions": [],
+    "aggregatetimespent": null,
+    "resolution": null,
+    "customfield_10027": null,
+    "customfield_10028": null,
+    "customfield_10029": null,
+    "resolutiondate": null,
+    "workratio": -1,
+    "lastViewed": "2024-02-20T18:06:04.051+0300",
+    "issuerestriction": {
+      "issuerestrictions": {},
+      "shouldDisplay": true
+    },
+    "watches": {
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/issue/TATP-23/watchers",
+      "watchCount": 1,
+      "isWatching": true
+    },
+    "created": "2024-02-20T17:21:12.531+0300",
+    "customfield_10020": null,
+    "customfield_10021": null,
+    "customfield_10022": null,
+    "customfield_10023": null,
+    "priority": {
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/priority/3",
+      "iconUrl": "https://inar-academy-team4.atlassian.net/images/icons/priorities/medium.svg",
+      "name": "Medium",
+      "id": "3"
+    },
+    "customfield_10024": null,
+    "customfield_10025": null,
+    "labels": [
+      "CREATE",
+      "POST",
+      "TEST"
+    ],
+    "customfield_10016": null,
+    "customfield_10017": null,
+    "customfield_10018": {
+      "hasEpicLinkFieldDependency": false,
+      "showField": false,
+      "nonEditableReason": {
+        "reason": "PLUGIN_LICENSE_ERROR",
+        "message": "The Parent Link is only available to Jira Premium users."
+      }
+    },
+    "customfield_10019": "0|i000n7:",
+    "timeestimate": null,
+    "aggregatetimeoriginalestimate": null,
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2024-02-20T18:07:06.570+0300",
+    "status": {
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/status/10008",
+      "description": "",
+      "iconUrl": "https://inar-academy-team4.atlassian.net/",
+      "name": "To Do",
+      "id": "10008",
+      "statusCategory": {
+        "self": "https://inar-academy-team4.atlassian.net/rest/api/3/statuscategory/2",
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "components": [],
+    "timeoriginalestimate": null,
+    "description": {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "text": "THIS IS THE DESCRIPTION OF THE ISSUE",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    "customfield_10010": null,
+    "customfield_10014": null,
+    "timetracking": {},
+    "customfield_10015": null,
+    "customfield_10005": null,
+    "customfield_10006": null,
+    "customfield_10007": null,
+    "security": null,
+    "customfield_10008": null,
+    "aggregatetimeestimate": null,
+    "attachment": [],
+    "customfield_10009": null,
+    "summary": "TEST - THIS IS THE SUMMARY OF THE ISSUE",
+    "creator": {
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020%3A1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+      "accountId": "712020:1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+      "emailAddress": "berkan.eris.10@gmail.com",
+      "avatarUrls": {
+        "48x48": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+        "24x24": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+        "16x16": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+        "32x32": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png"
+      },
+      "displayName": "Berkan Eriş",
+      "active": true,
+      "timeZone": "Europe/Istanbul",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020%3A1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+      "accountId": "712020:1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+      "emailAddress": "berkan.eris.10@gmail.com",
+      "avatarUrls": {
+        "48x48": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+        "24x24": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+        "16x16": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+        "32x32": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png"
+      },
+      "displayName": "Berkan Eriş",
+      "active": true,
+      "timeZone": "Europe/Istanbul",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "customfield_10001": null,
+    "customfield_10002": null,
+    "customfield_10003": null,
+    "customfield_10004": null,
+    "environment": null,
+    "duedate": null,
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/issue/TATP-23/votes",
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "self": "https://inar-academy-team4.atlassian.net/rest/api/3/issue/10158/comment/10008",
+          "id": "10008",
+          "author": {
+            "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020%3A1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+            "accountId": "712020:1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+            "emailAddress": "berkan.eris.10@gmail.com",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+              "24x24": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+              "16x16": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+              "32x32": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png"
+            },
+            "displayName": "Berkan Eriş",
+            "active": true,
+            "timeZone": "Europe/Istanbul",
+            "accountType": "atlassian"
+          },
+          "body": {
+            "content": [
+              {
+                "content": [
+                  {
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.",
+                    "type": "text"
+                  }
+                ],
+                "type": "paragraph"
+              }
+            ],
+            "type": "doc",
+            "version": 1
+          },
+          "updateAuthor": {
+            "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020%3A1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+            "accountId": "712020:1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+            "emailAddress": "berkan.eris.10@gmail.com",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+              "24x24": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+              "16x16": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+              "32x32": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png"
+            },
+            "displayName": "Berkan Eriş",
+            "active": true,
+            "timeZone": "Europe/Istanbul",
+            "accountType": "atlassian"
+          },
+          "created": "2024-02-20T18:07:06.570+0300",
+          "updated": "2024-02-20T18:07:06.570+0300",
+          "jsdPublic": true
+        }
+      ],
+      "self": "https://inar-academy-team4.atlassian.net/rest/api/3/issue/10158/comment",
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    }
+  }
+}
