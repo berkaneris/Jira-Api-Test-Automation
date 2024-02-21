@@ -6,7 +6,7 @@ Feature: Create Issue In Jira
   Scenario: User create an issue successfully
       When the client sets the request body to create a new issue
         | projectKey         | TATP                                    |
-        | summary            | TEST - THIS IS THE SUMMARY OF THE ISSUE |
+        | summary            | TEST - Lets try another one |
         | labels             | TEST;POST;CREATE                        |
         | descriptionType    | doc                                     |
         | descriptionVersion | 1                                       |
