@@ -12,6 +12,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.assertj.core.api.SoftAssertions;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -109,6 +110,7 @@ public class CreateIssueSteps extends BaseSteps {
     @And("the response should contain create issue data")
     public void theResponseShouldContainCreateIssueData() {
         createIssueRes = response.as(CreateIssueRes.class);
+        issueKeyAndCommentIdList.put(createIssueRes.getKey() , new ArrayList<>());
 
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(createIssueRes.getId()).isNotEmpty();
