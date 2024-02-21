@@ -44,19 +44,6 @@ public class GetIssueSteps extends BaseSteps {
 
         JsonElement actualJson = JsonParser.parseString(actualJsonResponse);
         JsonElement expectedJson = JsonParser.parseString(expectedJsonResponse);
-//        ObjectMapper mapper = new ObjectMapper();
-//        JsonNode s1Json = null;
-//        try {
-//            s1Json = mapper.readTree(actualJsonResponse);
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException(e);
-//        }
-//        JsonNode s2Json = null;
-//        try {
-//            s2Json = mapper.readTree(expectedJsonResponse);
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException(e);
-//        }
 
         Assertions.assertThat(actualJson).isEqualTo(expectedJson);
 

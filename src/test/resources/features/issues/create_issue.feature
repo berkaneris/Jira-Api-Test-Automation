@@ -5,15 +5,15 @@ Feature: Create Issue In Jira
 
   Scenario: User create an issue successfully
       When the client sets the request body to create a new issue
-        | projectKey         | TATP                                    |
-        | summary            | TEST - Lets try another one |
-        | labels             | TEST;POST;CREATE                        |
-        | descriptionType    | doc                                     |
-        | descriptionVersion | 1                                       |
-        | contentType        | paragraph                               |
-        | contContentType    | text                                    |
-        | contContentText    | THIS IS THE DESCRIPTION OF THE ISSUE    |
-        | issueTypeName      | Story                                   |
+        | projectKey         | TATP                                 |
+        | summary            | TEST - Lets try another one          |
+        | labels             | TEST;POST;CREATE                     |
+        | descriptionType    | doc                                  |
+        | descriptionVersion | 1                                    |
+        | contentType        | paragraph                            |
+        | contContentType    | text                                 |
+        | contContentText    | THIS IS THE DESCRIPTION OF THE ISSUE |
+        | issueTypeName      | Story                                |
 
       When the client sends a POST request to create issue endpoint
       Then the response status code should be 201
