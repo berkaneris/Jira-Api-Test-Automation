@@ -1,0 +1,185 @@
+[
+  {
+    "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=605502412f452d006f92394e",
+    "accountId": "605502412f452d006f92394e",
+    "accountType": "atlassian",
+    "avatarUrls": {
+      "48x48": "https://secure.gravatar.com/avatar/1c9edc579487472266259d854309eb21?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNA-2.png",
+      "24x24": "https://secure.gravatar.com/avatar/1c9edc579487472266259d854309eb21?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNA-2.png",
+      "16x16": "https://secure.gravatar.com/avatar/1c9edc579487472266259d854309eb21?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNA-2.png",
+      "32x32": "https://secure.gravatar.com/avatar/1c9edc579487472266259d854309eb21?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNA-2.png"
+    },
+    "displayName": "Nisanur Altuntaş",
+    "active": true,
+    "timeZone": "Europe/Istanbul",
+    "locale": "tr_TR",
+    "groups": {
+      "size": 2,
+      "items": [
+      ]
+    },
+    "applicationRoles": {
+      "size": 1,
+      "items": [
+      ]
+    },
+    "expand": "groups,applicationRoles"
+  },
+  {
+    "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020:bdfd4fd1-3af3-449e-80f0-215e7e350280",
+    "accountId": "712020:bdfd4fd1-3af3-449e-80f0-215e7e350280",
+    "accountType": "atlassian",
+    "avatarUrls": {
+      "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bdfd4fd1-3af3-449e-80f0-215e7e350280/a65e712b-16df-4675-96f6-847487127dda/48",
+      "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bdfd4fd1-3af3-449e-80f0-215e7e350280/a65e712b-16df-4675-96f6-847487127dda/24",
+      "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bdfd4fd1-3af3-449e-80f0-215e7e350280/a65e712b-16df-4675-96f6-847487127dda/16",
+      "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:bdfd4fd1-3af3-449e-80f0-215e7e350280/a65e712b-16df-4675-96f6-847487127dda/32"
+    },
+    "displayName": "Furkan Altuntaş",
+    "active": true,
+    "timeZone": "Europe/Istanbul",
+    "locale": "en_GB",
+    "groups": {
+      "size": 2,
+      "items": [
+      ]
+    },
+    "applicationRoles": {
+      "size": 1,
+      "items": [
+      ]
+    },
+    "expand": "groups,applicationRoles"
+  },
+  {
+    "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020:d8b781de-c6aa-4e64-b56d-9df9f27fa23f",
+    "accountId": "712020:d8b781de-c6aa-4e64-b56d-9df9f27fa23f",
+    "accountType": "atlassian",
+    "avatarUrls": {
+      "48x48": "https://secure.gravatar.com/avatar/26fe138f458040ace87042ceffa9a9fb?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-6.png",
+      "24x24": "https://secure.gravatar.com/avatar/26fe138f458040ace87042ceffa9a9fb?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-6.png",
+      "16x16": "https://secure.gravatar.com/avatar/26fe138f458040ace87042ceffa9a9fb?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-6.png",
+      "32x32": "https://secure.gravatar.com/avatar/26fe138f458040ace87042ceffa9a9fb?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-6.png"
+    },
+    "displayName": "mehmetnafiz6060",
+    "active": true,
+    "timeZone": "Europe/Istanbul",
+    "locale": "en_US",
+    "groups": {
+      "size": 1,
+      "items": [
+      ]
+    },
+    "applicationRoles": {
+      "size": 1,
+      "items": [
+      ]
+    },
+    "expand": "groups,applicationRoles"
+  },
+  {
+    "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020:1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+    "accountId": "712020:1c93a5cc-f561-40d9-9574-68cbcb3f8e8f",
+    "accountType": "atlassian",
+    "avatarUrls": {
+      "48x48": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+      "24x24": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+      "16x16": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png",
+      "32x32": "https://secure.gravatar.com/avatar/1bbf7a374be271a12760f26d47704b9f?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBE-6.png"
+    },
+    "displayName": "Berkan Eriş",
+    "active": true,
+    "timeZone": "Europe/Istanbul",
+    "locale": "en_US",
+    "groups": {
+      "size": 2,
+      "items": [
+      ]
+    },
+    "applicationRoles": {
+      "size": 1,
+      "items": [
+      ]
+    },
+    "expand": "groups,applicationRoles"
+  },
+  {
+    "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020:ce2196d1-51d8-40af-af6a-43c2b90da88f",
+    "accountId": "712020:ce2196d1-51d8-40af-af6a-43c2b90da88f",
+    "accountType": "atlassian",
+    "avatarUrls": {
+      "48x48": "https://secure.gravatar.com/avatar/97400367da00c120f55c0b66f778be17?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBD-4.png",
+      "24x24": "https://secure.gravatar.com/avatar/97400367da00c120f55c0b66f778be17?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBD-4.png",
+      "16x16": "https://secure.gravatar.com/avatar/97400367da00c120f55c0b66f778be17?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBD-4.png",
+      "32x32": "https://secure.gravatar.com/avatar/97400367da00c120f55c0b66f778be17?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBD-4.png"
+    },
+    "displayName": "Burak Doğan",
+    "active": true,
+    "timeZone": "Europe/Istanbul",
+    "locale": "en_US",
+    "groups": {
+      "size": 2,
+      "items": [
+      ]
+    },
+    "applicationRoles": {
+      "size": 1,
+      "items": [
+      ]
+    },
+    "expand": "groups,applicationRoles"
+  },
+  {
+    "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020:0be890c6-2f82-4c7d-9fbd-1c1bb07d960d",
+    "accountId": "712020:0be890c6-2f82-4c7d-9fbd-1c1bb07d960d",
+    "accountType": "atlassian",
+    "emailAddress": "bilal130623@gmail.com",
+    "avatarUrls": {
+      "48x48": "https://secure.gravatar.com/avatar/9fcdc28bb83fb4ea45aaf6cee5d73d45?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBT-0.png",
+      "24x24": "https://secure.gravatar.com/avatar/9fcdc28bb83fb4ea45aaf6cee5d73d45?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBT-0.png",
+      "16x16": "https://secure.gravatar.com/avatar/9fcdc28bb83fb4ea45aaf6cee5d73d45?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBT-0.png",
+      "32x32": "https://secure.gravatar.com/avatar/9fcdc28bb83fb4ea45aaf6cee5d73d45?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FBT-0.png"
+    },
+    "displayName": "Bilal Topal",
+    "active": true,
+    "timeZone": "Europe/Istanbul",
+    "locale": "tr_TR",
+    "groups": {
+      "size": 2,
+      "items": [
+      ]
+    },
+    "applicationRoles": {
+      "size": 1,
+      "items": [
+      ]
+    },
+    "expand": "groups,applicationRoles"
+  },
+  {
+    "self": "https://inar-academy-team4.atlassian.net/rest/api/3/user?accountId=712020:552a0377-def5-49bb-9333-e92740d593f6",
+    "accountId": "712020:552a0377-def5-49bb-9333-e92740d593f6",
+    "accountType": "atlassian",
+    "avatarUrls": {
+      "48x48": "https://secure.gravatar.com/avatar/0f269bdf67406edf4ae5b649e1e9f84b?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMA-4.png",
+      "24x24": "https://secure.gravatar.com/avatar/0f269bdf67406edf4ae5b649e1e9f84b?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMA-4.png",
+      "16x16": "https://secure.gravatar.com/avatar/0f269bdf67406edf4ae5b649e1e9f84b?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMA-4.png",
+      "32x32": "https://secure.gravatar.com/avatar/0f269bdf67406edf4ae5b649e1e9f84b?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMA-4.png"
+    },
+    "displayName": "MEHMET NAFİZ AVŞAR",
+    "active": true,
+    "timeZone": "Europe/Istanbul",
+    "locale": "en_US",
+    "groups": {
+      "size": 2,
+      "items": [
+      ]
+    },
+    "applicationRoles": {
+      "size": 1,
+      "items": [
+      ]
+    },
+    "expand": "groups,applicationRoles"
+  }
+]
