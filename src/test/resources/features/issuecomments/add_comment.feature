@@ -1,8 +1,9 @@
+@IssueCommentEndpoint
 Feature: Add An Issue Comment On Jira
 
   Background:
     Given the API requests are authenticated with system properties for username and token
-
+  @PositiveTest
   Scenario: User add an issue comment successfully
     When the client sets the request body to add an issue comment
       | type           | doc                        |
