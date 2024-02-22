@@ -1,4 +1,4 @@
-package com.inar.jira_api.pojo.response.create_issue_response.find_users_res;
+package com.inar.jira_api.pojo.response.find_users_res;
 
 public class FindUsersItem{
 	private String accountId;
