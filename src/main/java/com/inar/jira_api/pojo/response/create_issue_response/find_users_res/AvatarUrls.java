@@ -1,4 +1,4 @@
-package com.inar.jira_api.pojo.request.find_users;
+package com.inar.jira_api.pojo.response.create_issue_response.find_users_res;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
