@@ -1,4 +1,4 @@
-@Issue
+@JiraApi @Issue
 Feature: Get An Issue From Jira
 
   Background:

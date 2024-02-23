@@ -1,4 +1,4 @@
-@Projects
+@JiraApi @Projects
 Feature: Get Recent Projects On Jira
 
   Background:

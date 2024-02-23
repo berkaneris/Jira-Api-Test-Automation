@@ -1,4 +1,4 @@
-@IssueComment
+@JiraApi @IssueComment
 Feature: Delete An Issue Comment On Jira
 
   Background:

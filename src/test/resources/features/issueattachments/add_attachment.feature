@@ -1,4 +1,4 @@
-@Attachment
+@JiraApi @Attachment
 Feature: Add An Attachment In Jira Issue
 
   Background:

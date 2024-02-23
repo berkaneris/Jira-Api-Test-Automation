@@ -1,4 +1,4 @@
-@IssueComment
+@JiraApi @IssueComment
 Feature: Add An Issue Comment On Jira
 
   Background:

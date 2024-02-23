@@ -1,9 +1,10 @@
-Feature:bilal
+@JiraApi @Users
+Feature: Get All Users On Jira
 
   Background:
     Given the API requests are authenticated with system properties for username and token
-
-  Scenario Outline: bilal
+  @PositiveTest
+  Scenario Outline: User get all users information successfully
     When I set the start point to '<Start Point>' and maximum account number to '<Max Account Number>'
     Then the response status code should be '<Status code>'
     And Number of account should be '<Expected Max Account Number>'

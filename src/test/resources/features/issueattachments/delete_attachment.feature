@@ -1,4 +1,4 @@
-@Attachment
+@JiraApi @Attachment
 Feature: Delete An Attachment In Jira Issue
 
   Background:
