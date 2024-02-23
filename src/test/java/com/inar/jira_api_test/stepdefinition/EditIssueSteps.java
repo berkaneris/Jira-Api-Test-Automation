@@ -133,4 +133,6 @@ public class EditIssueSteps extends BaseSteps {
                 .get("/rest/api/3/issue/{issueIdOrKey}/changelog");
         logger.info("I edited current issue so I must have some infos about who edited and what are edited");
     }
+
+
 }
