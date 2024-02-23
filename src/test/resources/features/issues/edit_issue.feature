@@ -1,9 +1,11 @@
-Feature: Editting issue
+@JiraApi @Issue
+Feature: Edit An Issue On Jira
 
   Background:
     Given the API requests are authenticated with system properties for username and token
 
-  Scenario Outline: User create an issue successfully
+  @PositiveTest
+  Scenario Outline: User edit an issue successfully
     When the client sets the request body to create a new issue
       | projectKey         | TATP                                 |
       | summary            | <Issue summary before edit>          |
@@ -33,4 +35,13 @@ Feature: Editting issue
       | Issue summary before edit | Issue labels before edit | Issue labels for add after edit | Issue labels for remove after edit | Issue summary after edit | Issue labels after edit |
       | Test Before Edit          | PUT;TEST;                | ADD;GET;CREATE;BUG;             | PUT;                               | TEST AFTER EDİT          | ADD BUG CREATE GET TEST |
 
+  @PositiveTest
+  Scenario: User edit an issue successfully
+    When the client sets the request body to edit an issue
+      | add     | PUT               |
+      | remove1 | CREATE            |
+      | remove2 | CREATE-ISSUE      |
+      | set     | TEST - EDIT ISSUE |
 
+    And the client sends a PUT request to the api with "TATP-23" as issue key
+    Then the response status code should be 204
