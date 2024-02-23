@@ -37,4 +37,9 @@ public class APIUtils {
         JSONObject issue = new JSONObject(issueRes);
         return issue.getString("key");
     }
+    public static String getCommentId(){
+        String commentRes = TestDataReader.readData2("comment.json");
+        JSONObject commentObject = new JSONObject(commentRes);
+        return commentObject.getString("id");
+    }
 }

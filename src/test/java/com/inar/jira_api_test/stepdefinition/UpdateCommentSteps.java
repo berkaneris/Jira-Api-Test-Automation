@@ -17,6 +17,8 @@ public class UpdateCommentSteps extends BaseSteps {
     JsonObject commentPayload;
 
     String commentText;
+    String issueKey;
+    String commentId;
     @When("the client sets the request body to update a issue comment")
     public void theClientSetsTheRequestBodyToUpdateAIssueComment(DataTable dataTable) {
         Map<String,String> commentDetails = dataTable.asMap(String.class, String.class);
@@ -26,7 +28,16 @@ public class UpdateCommentSteps extends BaseSteps {
 
     @And("the client sends a PUT request to update an issue comment")
     public void theClientSendsAPUTRequestToUpdateAnIssueComment() {
+        issueKey = APIUtils.getIssueKey();
+        commentId = APIUtils.getCommentId();
         response = request
-                .pathParam()
+                .pathParam("issueIdOrKey" , issueKey )
+                .pathParam("id" , commentId)
+                .contentType("application/json")
+                .accept("application/json")
+                .body(String.valueOf(commentPayload))
+                .when()
+                .put(updateCommentEndpoint);
+
     }
 }

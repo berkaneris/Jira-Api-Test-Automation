@@ -77,7 +77,7 @@ public class GetAllUserss extends BaseSteps {
                 GetAllUsers fileUser = hashMap.get(accountId);
 
                 if (fileUser == null) {
-                        logger.error("No matching user in the JSON file for accountId: {}", accountId);
+                    logger.error("No matching user in the JSON file for accountId: {}", accountId);
                     continue;
                 }
                 softAssertions.assertThat(apiUser.getAccountId()).isEqualTo(fileUser.getAccountId());
