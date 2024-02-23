@@ -30,7 +30,7 @@ public class GetProjectSteps extends BaseSteps {
    }
 
     @And("Project ID should matches with {string}")
-    public void projectIDShouyldMatchesWithIDOfProject(String projectID) {
+    public void projectIDShouldMatchesWithIDOfProject(String projectID) {
         then(projectID).isEqualTo(response.jsonPath().getString("key"));
     }
 }
