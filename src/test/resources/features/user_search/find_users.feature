@@ -13,3 +13,11 @@ Feature: Test Find Users Endpoint
     When the client sets the request body to find user with maxResult "2"
     Then the response status code should be 200
     And the response should contain "2" users
+
+  @NegativeTest
+  Scenario: Find Users with invalid max result query param
+    When the client sets the request body to find user with maxResult "-1500"
+    Then the response status code should be 500
+
+
+

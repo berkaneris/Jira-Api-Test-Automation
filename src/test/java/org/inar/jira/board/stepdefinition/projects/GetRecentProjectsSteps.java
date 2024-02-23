@@ -63,4 +63,11 @@ public class GetRecentProjectsSteps extends BaseSteps {
         softAssertions.assertAll();
 
     }
+
+    @When("user send a GET request the recent projects with invalid point {string}")
+    public void userSendAGETRequestTheRecentProjectsWithInvalidPoint(String endpoint) {
+        response = request
+                .when()
+                .get(endpoint);
+    }
 }

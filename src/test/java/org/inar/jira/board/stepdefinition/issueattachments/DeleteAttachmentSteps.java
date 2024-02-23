@@ -16,9 +16,7 @@ import java.io.File;
 
 public class DeleteAttachmentSteps extends BaseSteps {
     private static final Logger logger = LogManager.getLogger(DeleteAttachmentSteps.class);
-
     String deleteAttachmentEndpoint = ConfigManager.getProperty("delete_attachment_url");
-
     String attachmentId;
     String issueKey;
 
