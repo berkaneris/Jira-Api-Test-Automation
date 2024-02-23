@@ -1,4 +1,4 @@
-@IssueCommentEndpoint
+@IssueComment
 Feature: Delete An Issue Comment On Jira
 
   Background:
@@ -6,7 +6,8 @@ Feature: Delete An Issue Comment On Jira
 
   @PositiveTest
   Scenario: User delete an issue comment successfully
-    When the client sends a DELETE request to delete an issue comment with "TATP-23" as issue id and "10008" as comment id
+    Given User has an issue comment to delete
+    When the client sends a DELETE request to delete an issue comment
     Then the response status code should be 204
 
   @NegativeTest

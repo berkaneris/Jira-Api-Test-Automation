@@ -1,8 +1,9 @@
+@Issue
 Feature: Edit An Issue On Jira
 
   Background:
     Given the API requests are authenticated with system properties for username and token
-
+  @PositiveTest
   Scenario: User edit an issue successfully
     When the client sets the request body to edit an issue
       | add     | PUT               |

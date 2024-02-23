@@ -1,27 +1,17 @@
 package com.inar.jira_api_test.stepdefinition;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.inar.jira_api.pojo.response.create_issue_response.CreateIssueRes;
 import com.inar.jira_api.utils.ConfigManager;
-import com.inar.jira_api.utils.TestDataDeleter;
-import com.inar.jira_api.utils.TestDataReader;
 import com.inar.jira_api.utils.TestDataWriter;
 import com.inar.jira_api_test.stepdefinition.hook.BaseSteps;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import io.restassured.common.mapper.TypeRef;
 import org.assertj.core.api.SoftAssertions;
-import org.json.JSONObject;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class CreateIssueSteps extends BaseSteps {
@@ -83,7 +73,7 @@ public class CreateIssueSteps extends BaseSteps {
 
     }
 
-    @And("the response should contain create issue data")
+    @And("the response should contain created issue data")
     public void theResponseShouldContainCreateIssueData() {
         //Rest assured deserialization
         createIssueRes = response.as(CreateIssueRes.class);

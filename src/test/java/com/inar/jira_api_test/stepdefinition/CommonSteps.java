@@ -1,16 +1,15 @@
 package com.inar.jira_api_test.stepdefinition;
 
-import com.inar.jira_api.utils.ConfigManager;
+
 import com.inar.jira_api_test.stepdefinition.hook.BaseSteps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.sl.In;
 import io.restassured.RestAssured;
 import org.assertj.core.api.Assertions;
 
 public class CommonSteps extends BaseSteps {
     @Given("the API requests are authenticated with system properties for username and token")
-    public static void theAPIRequestsAreAuthenticatedWithSystemPropertiesForUsernameAndToken() {
+    public void theAPIRequestsAreAuthenticatedWithSystemPropertiesForUsernameAndToken() {
         String username = System.getenv("jirausername");
         String token = System.getenv("accesstoken");
 

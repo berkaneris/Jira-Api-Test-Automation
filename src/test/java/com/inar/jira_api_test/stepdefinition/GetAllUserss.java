@@ -62,7 +62,7 @@ public class GetAllUserss extends BaseSteps {
     @And("Content of accounts should match with given data")
     public void contentOfAccountsShouldMatchWithGivenData() throws IOException {
         try {
-            List<GetAllUsers> bilal = objectMapper.readValue(new File("src\\test\\resources\\features\\testdata\\GetAllUsers.json"), new TypeReference<>() {
+            List<GetAllUsers> bilal = objectMapper.readValue(new File("src\\test\\resources\\testdata\\GetAllUsers.json"), new TypeReference<>() {
             });
             for (GetAllUsers user : bilal) {
                 if (user != null && user.getAccountId() != null) {

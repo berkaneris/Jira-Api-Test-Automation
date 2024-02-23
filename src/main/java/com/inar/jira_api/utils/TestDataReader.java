@@ -14,7 +14,7 @@ public class TestDataReader {
         FileInputStream fileInputStream;
 
         try {
-            fileInputStream = new FileInputStream("src\\test\\resources\\features\\testdata\\" + path);
+            fileInputStream = new FileInputStream("src\\test\\resources\\testdata\\" + path);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -24,7 +24,7 @@ public class TestDataReader {
     }
     public static String readData2(String fileName) {
         try {
-            String content = new String(Files.readAllBytes(Paths.get("src\\test\\resources\\features\\testdata\\" + fileName)));
+            String content = new String(Files.readAllBytes(Paths.get("src\\test\\resources\\testdata\\" + fileName)));
             return content;
         } catch (IOException e) {
             System.err.println("Error reading JSON file: " + e.getMessage());

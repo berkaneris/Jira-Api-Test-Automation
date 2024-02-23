@@ -1,4 +1,4 @@
-@AttachmentEndpoint
+@Attachment
 Feature: Add An Attachment In Jira Issue
 
   Background:
@@ -6,16 +6,16 @@ Feature: Add An Attachment In Jira Issue
 
   @PositiveTest
   Scenario: User adds an attachment to jira issue successfully
-    When the client sends a POST request with "TATP-23" as issue key and "src/test/resources/features/testdata/AttachmentData.jpg"
+    When the client sends a POST request to upload file "AttachmentData.jpg"
     Then the response status code should be 200
     And the response should contain attachment details
 
   @NegativeTest
   Scenario: User adds an attachment to jira issue with in valid issue key
-    When the client sends a POST request with "TATP-3" as issue key and "src/test/resources/features/testdata/AttachmentData.jpg"
+    When the client sends a POST request with "Test" as issue key and "AttachmentData.jpg"
     Then the response status code should be 404
 
   @NegativeTest
   Scenario: User adds an attachment to jira issue with in empty issue key
-    When the client sends a POST request with " " as issue key and "src/test/resources/features/testdata/AttachmentData.jpg"
+    When the client sends a POST request with " " as issue key and "AttachmentData.jpg"
     Then the response status code should be 400

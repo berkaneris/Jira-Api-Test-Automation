@@ -1,6 +1,8 @@
 package com.inar.jira_api_test.stepdefinition;
 
+import com.inar.jira_api.utils.APIUtils;
 import com.inar.jira_api.utils.ConfigManager;
+import com.inar.jira_api.utils.TestDataReader;
 import com.inar.jira_api.utils.TestDataWriter;
 import com.inar.jira_api_test.stepdefinition.hook.BaseSteps;
 import io.cucumber.java.en.And;
@@ -18,16 +20,15 @@ public class AddAttachmentSteps extends BaseSteps {
 
     String fileName;
     @When("the client sends a POST request with {string} as issue key and {string}")
-    public void theClientSendsAPOSTRequestWithAsIssueKeyAnd(String issueKey, String filePath) {
+    public void theClientSendsAPOSTRequestWithAsIssueKeyAnd(String issueKey, String fileName) {
         response = request
                 .pathParam("issueIdOrKey" , issueKey)
                 .header("X-Atlassian-Token" , "no-check")
-                .multiPart("file" , new File(filePath))
+                .multiPart("file" , new File("src/test/resources/testdata/" + fileName))
                 .when()
                 .post(addAttachmentEndpoint);
 
-        String[] pathParts = filePath.split("/");
-        fileName = pathParts[pathParts.length - 1];
+        this.fileName = fileName;
     }
 
     @And("the response should contain attachment details")
@@ -36,8 +37,20 @@ public class AddAttachmentSteps extends BaseSteps {
         Assertions.assertThat((String) object.getJSONObject(0).get("id")).isNotEmpty();
         Assertions.assertThat((String) object.getJSONObject(0).get("filename")).isEqualTo(fileName);
 
-
         TestDataWriter.writeData2(response.getBody().asString(), "attachment.json");
 
+    }
+
+    @When("the client sends a POST request to upload file {string}")
+    public void theClientSendsAPOSTRequestToUploadFile(String fileName) {
+        String issueKey = APIUtils.getIssueKey();
+        response = request
+                .pathParam("issueIdOrKey" , issueKey)
+                .header("X-Atlassian-Token" , "no-check")
+                .multiPart("file" , new File("src/test/resources/testdata/" + fileName))
+                .when()
+                .post(addAttachmentEndpoint);
+
+        this.fileName = fileName;
     }
 }

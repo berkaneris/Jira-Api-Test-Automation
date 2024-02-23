@@ -10,7 +10,7 @@ public class TestDataWriter {
 
     public static void writeData(Object object, String path) throws FileNotFoundException {
         ObjectMapper objectMapper = new ObjectMapper();
-        FileOutputStream fileOutputStream = new FileOutputStream("src\\test\\resources\\features\\testdata" + path);
+        FileOutputStream fileOutputStream = new FileOutputStream("src\\test\\resources\\testdata" + path);
 
         try {
             objectMapper.writeValue(fileOutputStream, object);
@@ -20,7 +20,7 @@ public class TestDataWriter {
     }
 
     public static void writeData2(String jsonData, String fileName) {
-        try (FileWriter fileWriter = new FileWriter("src\\test\\resources\\features\\testdata\\" + fileName)) {
+        try (FileWriter fileWriter = new FileWriter("src\\test\\resources\\testdata\\" + fileName)) {
             fileWriter.write(jsonData);
             System.out.println("Test data written to file successfully.");
         } catch (IOException e) {
