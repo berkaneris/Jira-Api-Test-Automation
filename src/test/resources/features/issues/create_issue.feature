@@ -15,7 +15,7 @@ Feature: Create Issue In Jira
         | contContentText    | THIS IS THE DESCRIPTION OF THE ISSUE |
         | issueTypeName      | Story                                |
 
-      When the client sends a POST request to create issue endpoint
+    When the client sends a POST request to create issue endpoint
       Then the response status code should be 201
       And the response should contain create issue data
 
