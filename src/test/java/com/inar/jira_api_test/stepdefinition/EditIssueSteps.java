@@ -10,6 +10,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.common.mapper.TypeRef;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 
 
@@ -23,7 +25,9 @@ import java.util.List;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
-public class EditIssuePath extends BaseSteps {
+public class EditIssueSteps extends BaseSteps {
+    private static final Logger logger = LogManager.getLogger(EditIssueSteps.class);
+
     ObjectMapper objectMapper = new ObjectMapper();
     EditedIssueInfos editedList;
     HashMap<String, String> hashForDataTable;
@@ -31,10 +35,12 @@ public class EditIssuePath extends BaseSteps {
     @When("I update the labels")
     public void ı_update_the_labels(DataTable dataTable) throws JsonProcessingException {
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        logger.debug("I used objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL) to be able editing partially");
         hashForDataTable = new HashMap<>();
         for (int i = 0; i < dataTable.height(); i++) {
             hashForDataTable.put(dataTable.cell(i, 0), dataTable.cell(i, 1));
         }
+
         List<LabelsItem> labelsItemLabelsItem = new ArrayList<>();
         if (hashForDataTable.containsKey("add")) {
             List<String> add = List.of(hashForDataTable.get("add").split(";"));
@@ -42,6 +48,7 @@ public class EditIssuePath extends BaseSteps {
                 LabelsItem labelsItems = new LabelsItem();
                 labelsItems.setAdd(add.get(i));
                 labelsItemLabelsItem.add(labelsItems);
+                logger.info("Edited for ADD:-->" + add.get(i));
             }
         }
 
@@ -50,8 +57,8 @@ public class EditIssuePath extends BaseSteps {
             for (int i = 0; i < remove.size(); i++) {
                 LabelsItem labelsItems = new LabelsItem();
                 labelsItems.setRemove(remove.get(i));
-                // Ardından labelsItemLabelsItem listesine eklemelisiniz
                 labelsItemLabelsItem.add(labelsItems);
+                logger.info("Edited for remove -->" + remove.get(i));
             }
         }
         List<SummaryItem> summaryItemList = new ArrayList<>();
@@ -59,11 +66,12 @@ public class EditIssuePath extends BaseSteps {
             SummaryItem summaryItem = new SummaryItem();
             summaryItem.setSet(hashForDataTable.get("summary"));
             summaryItemList.add(summaryItem);
+            logger.info("Edited for summary -->" + hashForDataTable.get("summary"));
         }
 
         Update update = new Update(labelsItemLabelsItem, summaryItemList);
         EditIssue editIssue = new EditIssue(update);
-
+        logger.info("New updates were sent to EditIssue Pojo request class");
         String jsonFormatEditIssue = objectMapper.writeValueAsString(editIssue);
         response = request
                 .body(jsonFormatEditIssue)
@@ -82,22 +90,27 @@ public class EditIssuePath extends BaseSteps {
             hashForDataTable.put(dataTable.cell(i, 0), dataTable.cell(i, 1));
         }
         then(response.jsonPath().getList("values")).isNotEmpty();
-       then(response.jsonPath().getString("values.id")).isEqualTo((CreateIssueSteps.keyOfIssue));
-
+        then(response.jsonPath().getString("self")).contains((CreateIssueSteps.keyOfIssue));
+        logger.info("The issue key should be --> " + CreateIssueSteps.keyOfIssue);
         EditedIssueInfos editedIssueInfosList = response.as(new TypeRef<>() {
         });
 
-        System.out.println(editedIssueInfosList.getValues().get(0).getItems().get(0).getFromString().trim());
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getAuthor().getEmailAddress()).isEqualTo(CommonSteps.usernameForEditTest);
+        logger.info("The e-mail of user name should be -->" + CommonSteps.usernameForEditTest);
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getItems().get(0).getFromString().trim()).isEqualTo(hashForDataTable.get("Issue labels before edit").replace(";", " ").trim());
+        logger.info("In process of creating issue user give as labels--->" + hashForDataTable.get("Issue labels before edit"));
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getItems().get(0).getToString().trim()).isEqualTo(hashForDataTable.get("Issue labels for edit").replace(";", " ").trim());
+        logger.info("After edit process new labels should be -->" + hashForDataTable.get("Issue labels for edit"));
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getItems().get(1).getFromString()).isEqualTo(hashForDataTable.get("Issue summary before edit"));
+        logger.info("Before edit summary should be -->" + hashForDataTable.get("Issue summary before edit"));
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getItems().get(1).getToString()).isEqualTo(hashForDataTable.get("Issue summary after edit"));
+        logger.info("After edit summary should be -->" + hashForDataTable.get("Issue summary after edit"));
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedCurrentDate = currentDate.format(dateFormatter);
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getCreated()).contains(formattedCurrentDate);
+        logger.info("Editing process happened at -->" + formattedCurrentDate);
         softAssertions.assertAll();
 
     }
@@ -110,6 +123,7 @@ public class EditIssuePath extends BaseSteps {
         editedList = response.as(new TypeRef<>() {
         });
         then(response.jsonPath().getList("values")).isEmpty();
+        logger.info("I create new issue so values for editing should be empty-->" + response.jsonPath().getList("values").isEmpty());
     }
 
     @When("Get the edited issue")
@@ -117,5 +131,6 @@ public class EditIssuePath extends BaseSteps {
         response = request.header("Accept", "application/json")
                 .pathParam("issueIdOrKey", CreateIssueSteps.idOfCreatedIssue)
                 .get("/rest/api/3/issue/{issueIdOrKey}/changelog");
+        logger.info("I edited current issue so I must have some infos about who edited and what are edited");
     }
 }
