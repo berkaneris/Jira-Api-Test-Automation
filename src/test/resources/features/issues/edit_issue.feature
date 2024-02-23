@@ -24,10 +24,10 @@ Feature: Editting issue
     Then the response status code should be 204
     When Get the edited issue
     Then Edited issue paramaters should match with former issue
-      | Issue summary before edit | '<Issue summary before edit>' |
-      | Issue labels before edit  | '<Issue labels before edit>'  |
-      | Issue labels for edit     | '<Issue labels after edit>'   |
-      | Issue summary after edit  | '<Issue summary after edit>'  |
+      | Issue summary before edit | <Issue summary before edit> |
+      | Issue labels before edit  | <Issue labels before edit>  |
+      | Issue labels for edit     | <Issue labels after edit>   |
+      | Issue summary after edit  | <Issue summary after edit>  |
 
     Examples:
       | Issue summary before edit | Issue labels before edit | Issue labels for add after edit | Issue labels for remove after edit | Issue summary after edit | Issue labels after edit |
