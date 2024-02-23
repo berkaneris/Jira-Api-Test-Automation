@@ -12,7 +12,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -28,6 +27,8 @@ public class GetAllUserss extends BaseSteps {
 
     @When("I set the start point to {string} and maximum account number to {string}")
     public void ıSetTheStartPointToStartPointAndMaximumAccountNumberToMaxAccountNumber(String startAt, String maxValue) throws IOException, InterruptedException {
+        logger.info("Setting start point to '{}' and maximum account number to '{}'", startAt, maxValue);
+
         if (maxValue.isBlank() && startAt.isBlank()) {
             startAt = "0";
             maxValue = "60";
@@ -40,25 +41,26 @@ public class GetAllUserss extends BaseSteps {
                 .queryParam("maxResults", maxValue)
                 .get(getAllUsersEndpoint);
 
+        logger.debug("Result should show less than {} account", maxValue);
+        logger.debug("Accounts of showed should be {}th of all users", startAt);
 
-        logger.debug("Result should show less than " + maxValue + " account");
-        logger.debug("Accounts of showed should be " + startAt + "th of all users");
-        getAllUsersList = response.as(new TypeRef<>() {
-        });
-        logger.info("According to given query params getAllUsersList setted." + "(size :" + getAllUsersList.size() + ")");
+        getAllUsersList = response.as(new TypeRef<>() {});
+        logger.info("According to given query params getAllUsersList setted. (size: {})", getAllUsersList.size());
     }
 
 
     @And("Number of account should be {string}")
     public void numberOfAccountShouldBeMaxAccountNumber(String numberOfUser) {
+        logger.info("Checking if the number of accounts is '{}'", numberOfUser);
         then(getAllUsersList.size()).isLessThanOrEqualTo(Integer.parseInt(numberOfUser));
     }
 
     @And("Content of accounts should match with given data")
     public void contentOfAccountsShouldMatchWithGivenData() throws IOException {
         try {
-            List<GetAllUsers> bilal = objectMapper.readValue(new File("src\\test\\resources\\testdata\\GetAllUsers.json"), new TypeReference<>() {
-            });
+            logger.info("Reading data from JSON file...");
+
+            List<GetAllUsers> bilal = objectMapper.readValue(new File("src\\test\\resources\\testdata\\GetAllUsers.json"), new TypeReference<>() {});
             for (GetAllUsers user : bilal) {
                 if (user != null && user.getAccountId() != null) {
                     hashMap.put(user.getAccountId(), user);
@@ -66,7 +68,10 @@ public class GetAllUserss extends BaseSteps {
                     logger.warn("Skipping entry due to null value for user or accountId.");
                 }
             }
+
             SoftAssertions softAssertions = new SoftAssertions();
+            logger.info("Comparing account details...");
+
             for (GetAllUsers apiUser : getAllUsersList) {
                 String accountId = apiUser.getAccountId();
                 GetAllUsers fileUser = hashMap.get(accountId);
