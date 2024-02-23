@@ -23,12 +23,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -91,10 +88,7 @@ public class EditIssueSteps extends BaseSteps {
                 .accept("application/json")
                 .contentType("application/json")
                 .put("/rest/api/3/issue/{issueIdOrKey}");
-
-
     }
-
 
     @Then("Edited issue paramaters should match with former issue")
     public void editedIssueParamatersSholudMatchWithFormerIssue(DataTable dataTable) {
@@ -104,8 +98,7 @@ public class EditIssueSteps extends BaseSteps {
         then(response.jsonPath().getList("values")).isNotEmpty();
         then(response.jsonPath().getString("self")).contains((CreateIssueSteps.keyOfIssue));
         logger.info("The issue key should be --> " + CreateIssueSteps.keyOfIssue);
-        EditedIssueInfos editedIssueInfosList = response.as(new TypeRef<>() {
-        });
+        EditedIssueInfos editedIssueInfosList = response.as(new TypeRef<>() {});
 
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getAuthor().getEmailAddress()).isEqualTo(CommonSteps.usernameForEditTest);
@@ -124,7 +117,6 @@ public class EditIssueSteps extends BaseSteps {
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getCreated()).contains(formattedCurrentDate);
         logger.info("Editing process happened at -->" + formattedCurrentDate);
         softAssertions.assertAll();
-
     }
 
     @When("Get the current issue")
@@ -145,7 +137,6 @@ public class EditIssueSteps extends BaseSteps {
         logger.info("I edited current issue so I must have some infos about who edited and what are edited");
     }
 
-
     @When("the client sets the request body to edit an issue")
     public void theClientSetsTheRequestBodyToEditAnIssue(DataTable dataTable) {
         Map<String,String> editDetails = dataTable.asMap(String.class , String.class);
@@ -157,7 +148,6 @@ public class EditIssueSteps extends BaseSteps {
         JsonObject labelObject2 = new JsonObject();
         JsonObject labelObject3 = new JsonObject();
         JsonObject summaryObject = new JsonObject();
-
 
         labelObject1.addProperty("add" , editDetails.get("add"));
         labelObject2.addProperty("remove" , editDetails.get("remove1"));
@@ -185,5 +175,4 @@ public class EditIssueSteps extends BaseSteps {
                 .when()
                 .put(editIssueEndpoint);
     }
-
 }
