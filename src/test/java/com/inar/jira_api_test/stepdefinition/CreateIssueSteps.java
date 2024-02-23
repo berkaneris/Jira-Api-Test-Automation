@@ -20,7 +20,7 @@ public class CreateIssueSteps extends BaseSteps {
 
     String createIssueEndpoint = ConfigManager.getProperty("create_issue_url");
 
-//    Issue issue = new Issue();
+    //    Issue issue = new Issue();
 //    Content content = new Content();
 //    Text text = new Text();
 //    Description description = new Description();
@@ -30,16 +30,16 @@ public class CreateIssueSteps extends BaseSteps {
 //    Project project = new Project();
     CreateIssueRes createIssueRes;
 
-    String issueIdOrKey ;
+    String issueIdOrKey;
 
     JsonObject issuePayload = new JsonObject();
     protected static int idOfCreatedIssue;
-
+    protected static String issueCart;
 
 
     @When("the client sets the request body to create a new issue")
     public void theClientSetsTheRequestBodyToCreateANewIssue(DataTable dataTable) {
-        Map<String,String> issueDetails = dataTable.asMap(String.class, String.class);
+        Map<String, String> issueDetails = dataTable.asMap(String.class, String.class);
 //        text.setText(issueDetails.get("contContentText"));
 //        text.setType(issueDetails.get("contContentType"));
 //
@@ -69,35 +69,35 @@ public class CreateIssueSteps extends BaseSteps {
         JsonObject issueType = new JsonObject();
         JsonObject project = new JsonObject();
 
-        innerContent.addProperty("text" ,issueDetails.get("contContentText"));
-        innerContent.addProperty("type" ,issueDetails.get("contContentType"));
+        innerContent.addProperty("text", issueDetails.get("contContentText"));
+        innerContent.addProperty("type", issueDetails.get("contContentType"));
 
         JsonArray innerContentArray = new JsonArray();
         innerContentArray.add(innerContent);
-        content.addProperty("type" ,issueDetails.get("contentType"));
-        content.add("content" , innerContentArray);
+        content.addProperty("type", issueDetails.get("contentType"));
+        content.add("content", innerContentArray);
 
         JsonArray contentArray = new JsonArray();
         contentArray.add(content);
-        description.addProperty("type" ,issueDetails.get("descriptionType"));
-        description.addProperty("version" ,Integer.parseInt(issueDetails.get("descriptionVersion")));
-        description.add("content" ,contentArray);
+        description.addProperty("type", issueDetails.get("descriptionType"));
+        description.addProperty("version", Integer.parseInt(issueDetails.get("descriptionVersion")));
+        description.add("content", contentArray);
 
-        project.addProperty("key" ,issueDetails.get("projectKey"));
-        issueType.addProperty("name" , issueDetails.get("issueTypeName"));
+        project.addProperty("key", issueDetails.get("projectKey"));
+        issueType.addProperty("name", issueDetails.get("issueTypeName"));
 
         String[] labels = issueDetails.get("labels").split(";");
         JsonArray labelArray = new JsonArray();
-        for(String label: labels) {
+        for (String label : labels) {
             labelArray.add(label);
         }
-        fields.add("project" , project);
-        fields.addProperty("summary" , issueDetails.get("summary"));
-        fields.add("labels" , labelArray);
-        fields.add("description" , description);
-        fields.add("issuetype" , issueType);
+        fields.add("project", project);
+        fields.addProperty("summary", issueDetails.get("summary"));
+        fields.add("labels", labelArray);
+        fields.add("description", description);
+        fields.add("issuetype", issueType);
 
-        issuePayload.add("fields" , fields);
+        issuePayload.add("fields", fields);
 
     }
 
@@ -106,8 +106,8 @@ public class CreateIssueSteps extends BaseSteps {
 //        String requestBody = new Gson().toJson(issue);
 
         response = request.contentType("application/json").body(String.valueOf(issuePayload)).when().post(createIssueEndpoint);
-        idOfCreatedIssue =response.jsonPath().getInt("id");
-
+        idOfCreatedIssue = response.jsonPath().getInt("id");
+        issueCart = response.jsonPath().getString("key");
     }
 
     @And("the response should contain create issue data")
@@ -122,7 +122,6 @@ public class CreateIssueSteps extends BaseSteps {
 
 
     }
-
 
 
 }

@@ -17,7 +17,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -85,13 +85,9 @@ public class EditIssuePath extends BaseSteps {
             hashForDataTable.put(dataTable.cell(i, 0), dataTable.cell(i, 1));
         }
         then(response.jsonPath().getList("values")).isNotEmpty();
-     //   then(response.jsonPath().getString("values.id")).isEqualTo((CreateIssueSteps.idOfCreatedIssue)+"");
-
-        System.out.println(String.valueOf(hashForDataTable.get("Issue labels before edit")));
+        then(response.jsonPath().getString("self")).contains(CreateIssueSteps.issueCart);
         EditedIssueInfos editedIssueInfosList = response.as(new TypeRef<>() {
         });
-
-        System.out.println(editedIssueInfosList.getValues().get(0).getItems().get(0).getFromString().trim());
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getAuthor().getEmailAddress()).isEqualTo(CommonSteps.usernameForEditTest);
         softAssertions.assertThat(editedIssueInfosList.getValues().get(0).getItems().get(0).getFromString().trim()).isEqualTo(hashForDataTable.get("Issue labels before edit").replace(";", " ").trim());
@@ -113,6 +109,7 @@ public class EditIssuePath extends BaseSteps {
                 .get("/rest/api/3/issue/{issueIdOrKey}/changelog");
         editedList = response.as(new TypeRef<>() {
         });
+        then(response.jsonPath().getList("values")).isNotEmpty();
     }
 
     @When("Get the edited issue")
