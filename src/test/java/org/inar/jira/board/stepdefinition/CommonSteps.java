@@ -19,22 +19,17 @@ public class CommonSteps extends BaseSteps {
             throw new IllegalArgumentException("Username  or token system properties are not set.");
         }
         request = RestAssured.given().auth().preemptive().basic(username, token);
-
-//        request.baseUri(ConfigManager.getProperty("base.uri"));
     }
 
     @Then("the response status code should be {int}")
     public void theResponseStatusCodeShouldBe(int expectedStatusCode) {
         Assertions.assertThat(response.statusCode()).isEqualTo(expectedStatusCode);
-
     }
 
     @Then("the response status code should be {string}")
     public void theResponseStatusCodeShouldBeStatusCode(String expectedStatusCode) {
         Assertions.assertThat(response.statusCode()).isEqualTo(Integer.parseInt(expectedStatusCode));
         System.out.println(response.prettyPrint());
-
-
     }
 
 }

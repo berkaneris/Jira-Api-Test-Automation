@@ -47,7 +47,7 @@ public class UpdateCommentSteps extends BaseSteps {
     public void theResponseShouldContainUpdatedCommentDetails() {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(response.jsonPath().getString("body.content.content.text").contains(commentText)).isTrue();
-        TestDataWriter.writeData2(response.getBody().asString() , "comment.json");
+        TestDataWriter.writeData2(response.getBody().asString() , "Comment.json");
         softAssertions.assertAll();
     }
 }

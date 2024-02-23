@@ -34,7 +34,7 @@ public class AddAttachmentSteps extends BaseSteps {
         Assertions.assertThat((String) object.getJSONObject(0).get("id")).isNotEmpty();
         Assertions.assertThat((String) object.getJSONObject(0).get("filename")).isEqualTo(fileName);
 
-        TestDataWriter.writeData2(response.getBody().asString(), "attachment.json");
+        TestDataWriter.writeData2(response.getBody().asString(), "Attachment.json");
 
     }
 

@@ -52,7 +52,7 @@ public class AddCommentSteps extends BaseSteps {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(response.jsonPath().getString("id")).isNotEmpty();
         softAssertions.assertThat(response.jsonPath().getString("body.content.content.text").contains(commentText)).isTrue();
-        TestDataWriter.writeData2(response.getBody().asString() , "comment.json");
+        TestDataWriter.writeData2(response.getBody().asString() , "Comment.json");
         softAssertions.assertAll();
 
     }

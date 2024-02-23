@@ -1,12 +1,11 @@
 package org.inar.jira.board.stepdefinition.projects;
-import com.inar.jira_api_test.stepdefinition.hook.BaseSteps;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import io.cucumber.java.hu.Ha;
 import org.assertj.core.api.SoftAssertions;
+import org.inar.jira.board.stepdefinition.hook.BaseSteps;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.BDDAssertions.then;
@@ -30,7 +29,7 @@ public class GetProjectSteps extends BaseSteps {
         softAssertions.assertAll();
    }
 
-    @And("Project ID shouyld matches with {string}")
+    @And("Project ID should matches with {string}")
     public void projectIDShouyldMatchesWithIDOfProject(String projectID) {
         then(projectID).isEqualTo(response.jsonPath().getString("key"));
     }

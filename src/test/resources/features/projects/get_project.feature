@@ -1,12 +1,13 @@
+@JiraApi @Projects
 Feature:Get Project On Jira
 
   Background:
     Given the API requests are authenticated with system properties for username and token
-
+  @PositiveTest
   Scenario Outline: Verification of project details
     When I get details of project whose ID is '<ID of project>'
     Then the response status code should be 200
-    And Project ID shouyld matches with '<ID of project>'
+    And Project ID should matches with '<ID of project>'
     And Given values should match with response
       | Display Name     | <User Created Project> |
       | Activeness       | <Situation Activeness> |

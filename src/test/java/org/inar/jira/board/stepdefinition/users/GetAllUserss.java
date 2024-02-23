@@ -90,6 +90,4 @@ public class GetAllUserss extends BaseSteps {
             throw e; // Rethrow the exception after logging
         }
     }
-
-
 }

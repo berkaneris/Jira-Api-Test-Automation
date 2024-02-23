@@ -34,7 +34,7 @@ public class DeleteIssueSteps extends BaseSteps {
     public void userHasAnIssueToDelete() {
         //Create an issue to delete
         response = request.contentType("application/json")
-                .body(TestDataReader.readData2("creatIssueRequestBody.json"))
+                .body(TestDataReader.readData2("CreatIssueRequestBody.json"))
                 .when()
                 .post(ConfigManager.getProperty("create_issue_url"));
         issueKey = response.jsonPath().getString("key");

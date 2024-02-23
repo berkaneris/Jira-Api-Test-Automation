@@ -145,9 +145,7 @@ public class EditIssueSteps extends BaseSteps {
         logger.info("I edited current issue so I must have some infos about who edited and what are edited");
     }
 
-<<<<<<< HEAD:src/test/java/com/inar/jira_api_test/stepdefinition/EditIssueSteps.java
 
-=======
     @When("the client sets the request body to edit an issue")
     public void theClientSetsTheRequestBodyToEditAnIssue(DataTable dataTable) {
         Map<String,String> editDetails = dataTable.asMap(String.class , String.class);
@@ -187,5 +185,5 @@ public class EditIssueSteps extends BaseSteps {
                 .when()
                 .put(editIssueEndpoint);
     }
->>>>>>> features/T4-117-issue-attachment-test-scenarios:src/test/java/org/inar/jira/board/stepdefinition/issue/EditIssueSteps.java
+
 }

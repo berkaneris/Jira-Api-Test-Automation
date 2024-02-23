@@ -19,7 +19,7 @@ public class GetCommentSteps extends BaseSteps {
 
     @And("user has a comment information")
     public void userHasACommentInformationWithTheAsIssueKey() {
-        expectedComment = TestDataReader.readData2("comment.json");
+        expectedComment = TestDataReader.readData2("Comment.json");
         JSONObject commentObject = new JSONObject(expectedComment);
         commentId = commentObject.getString("id");
     }
