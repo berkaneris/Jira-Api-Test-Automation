@@ -10,8 +10,6 @@ import org.inar.jira.board.utils.ConfigManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 
 import java.util.Map;
