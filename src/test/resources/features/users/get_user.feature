@@ -17,3 +17,8 @@ Feature: Jira User Information Feature
     Then the response status code should be 200
     Then I should see the user is active
     And I should see the user display name as "Burak Doğan"
+
+  @NegativeTest
+  Scenario: User send request with empty account id
+    When the client sends a Get request to get user information as accountId " "
+    Then the response status code should be 400

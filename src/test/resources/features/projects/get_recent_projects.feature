@@ -25,3 +25,8 @@ Feature: Get Recent Projects On Jira
       | description,projectKeys,lead,issueTypes,permissions,insight |
       | description,lead                                            |
       | projectKeys,issueTypes,insight                              |
+
+  @NegativeTest
+  Scenario: Send request with wrong api endpoint
+    When user send a GET request the recent projects with invalid point "/rest/api/3/proje/recent"
+    Then the response status code should be 404
