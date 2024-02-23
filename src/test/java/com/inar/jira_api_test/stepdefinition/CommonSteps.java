@@ -9,15 +9,17 @@ import io.restassured.RestAssured;
 import org.assertj.core.api.Assertions;
 
 public class CommonSteps extends BaseSteps {
+    public static String usernameForEditTest;
+
     @Given("the API requests are authenticated with system properties for username and token")
     public static void theAPIRequestsAreAuthenticatedWithSystemPropertiesForUsernameAndToken() {
         String username = System.getenv("jirausername");
         String token = System.getenv("accesstoken");
-
-        if(username == null || username.isEmpty() || token == null || token.isEmpty()){
+        usernameForEditTest = System.getenv("jirausername");
+        if (username == null || username.isEmpty() || token == null || token.isEmpty()) {
             throw new IllegalArgumentException("Username  or token system properties are not set.");
         }
-        request = RestAssured.given().auth().preemptive().basic(username,token);
+        request = RestAssured.given().auth().preemptive().basic(username, token);
 
 //        request.baseUri(ConfigManager.getProperty("base.uri"));
     }
@@ -25,11 +27,16 @@ public class CommonSteps extends BaseSteps {
     @Then("the response status code should be {int}")
     public void theResponseStatusCodeShouldBe(int expectedStatusCode) {
         Assertions.assertThat(response.statusCode()).isEqualTo(expectedStatusCode);
+
+
     }
 
     @Then("the response status code should be {string}")
     public void theResponseStatusCodeShouldBeStatusCode(String expectedStatusCode) {
         Assertions.assertThat(response.statusCode()).isEqualTo(Integer.parseInt(expectedStatusCode));
+        System.out.println(response.prettyPrint());
+
 
     }
+
 }

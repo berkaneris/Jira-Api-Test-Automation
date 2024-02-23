@@ -30,7 +30,10 @@ public class CreateIssueSteps extends BaseSteps {
 //    Project project = new Project();
     CreateIssueRes createIssueRes;
 
+    String issueIdOrKey ;
+
     JsonObject issuePayload = new JsonObject();
+    protected static int idOfCreatedIssue;
 
 
 
@@ -103,6 +106,7 @@ public class CreateIssueSteps extends BaseSteps {
 //        String requestBody = new Gson().toJson(issue);
 
         response = request.contentType("application/json").body(String.valueOf(issuePayload)).when().post(createIssueEndpoint);
+        idOfCreatedIssue =response.jsonPath().getInt("id");
 
     }
 
