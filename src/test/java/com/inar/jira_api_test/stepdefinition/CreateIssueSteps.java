@@ -27,6 +27,7 @@ public class CreateIssueSteps extends BaseSteps {
 
     JsonObject issuePayload = new JsonObject();
     protected static int idOfCreatedIssue;
+    protected static String keyOfIssue;
 
     @When("the client sets the request body to create a new issue")
     public void theClientSetsTheRequestBodyToCreateANewIssue(DataTable dataTable) {
@@ -77,6 +78,7 @@ public class CreateIssueSteps extends BaseSteps {
 
         response = request.contentType("application/json").body(String.valueOf(issuePayload)).when().post(createIssueEndpoint);
         idOfCreatedIssue =response.jsonPath().getInt("id");
+        keyOfIssue = response.jsonPath().getString("key");
 
     }
 

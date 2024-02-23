@@ -17,7 +17,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,7 +27,6 @@ public class EditIssuePath extends BaseSteps {
     ObjectMapper objectMapper = new ObjectMapper();
     EditedIssueInfos editedList;
     HashMap<String, String> hashForDataTable;
-
 
     @When("I update the labels")
     public void ı_update_the_labels(DataTable dataTable) throws JsonProcessingException {
@@ -62,10 +61,8 @@ public class EditIssuePath extends BaseSteps {
             summaryItemList.add(summaryItem);
         }
 
-
         Update update = new Update(labelsItemLabelsItem, summaryItemList);
         EditIssue editIssue = new EditIssue(update);
-
 
         String jsonFormatEditIssue = objectMapper.writeValueAsString(editIssue);
         response = request
@@ -85,9 +82,8 @@ public class EditIssuePath extends BaseSteps {
             hashForDataTable.put(dataTable.cell(i, 0), dataTable.cell(i, 1));
         }
         then(response.jsonPath().getList("values")).isNotEmpty();
-     //   then(response.jsonPath().getString("values.id")).isEqualTo((CreateIssueSteps.idOfCreatedIssue)+"");
+       then(response.jsonPath().getString("values.id")).isEqualTo((CreateIssueSteps.keyOfIssue));
 
-        System.out.println(String.valueOf(hashForDataTable.get("Issue labels before edit")));
         EditedIssueInfos editedIssueInfosList = response.as(new TypeRef<>() {
         });
 
@@ -113,6 +109,7 @@ public class EditIssuePath extends BaseSteps {
                 .get("/rest/api/3/issue/{issueIdOrKey}/changelog");
         editedList = response.as(new TypeRef<>() {
         });
+        then(response.jsonPath().getList("values")).isEmpty();
     }
 
     @When("Get the edited issue")
