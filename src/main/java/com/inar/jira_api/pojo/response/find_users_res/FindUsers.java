@@ -1,4 +1,4 @@
-package com.inar.jira_api.pojo.request.find_users;
+package com.inar.jira_api.pojo.response.find_users_res;
 
 import java.util.List;
 
