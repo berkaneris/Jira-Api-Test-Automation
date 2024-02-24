@@ -2,6 +2,9 @@ package org.inar.jira.board.utils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 
 import java.util.Map;
@@ -41,5 +44,19 @@ public class APIUtils {
         String commentRes = TestDataReader.readData2("comment.json");
         JSONObject commentObject = new JSONObject(commentRes);
         return commentObject.getString("id");
+    }
+
+
+    public static RequestSpecification makeAuthentication(RequestSpecification request){
+        String username = System.getenv("jirausername");
+        String token = System.getenv("accesstoken");
+        if (username == null || username.isEmpty() || token == null || token.isEmpty()) {
+            throw new IllegalArgumentException("Username or token system properties are not set.");
+        }
+        return RestAssured.given().auth().preemptive().basic(username, token);
+    }
+    public static Response createIssueRequest(RequestSpecification request){
+        String requestBody = TestDataReader.readData2("CreatIssueRequestBody.json");
+        return request.contentType("application/json").body(requestBody).when().post(ConfigManager.getProperty("create_issue_url"));
     }
 }

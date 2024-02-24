@@ -2,6 +2,7 @@ package org.inar.jira.board.stepdefinition.issue;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import io.restassured.common.mapper.TypeRef;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.inar.jira.board.pojo.response.create_issue_response.CreateIssueRes;
@@ -91,6 +92,7 @@ public class CreateIssueSteps extends BaseSteps {
 
         //Rest assured deserialization
         createIssueRes = response.as(CreateIssueRes.class);
+
 
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(createIssueRes.getId()).isNotEmpty();
