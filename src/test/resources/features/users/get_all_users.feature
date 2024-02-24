@@ -3,6 +3,7 @@ Feature: Get All Users On Jira
 
   Background:
     Given the API requests are authenticated with system properties for username and token
+
   @PositiveTest
   Scenario Outline: User get all users information successfully
     When I set the start point to '<Start Point>' and maximum account number to '<Max Account Number>'
@@ -12,3 +13,5 @@ Feature: Get All Users On Jira
     Examples:
       | Start Point | Max Account Number | Status code | Expected Max Account Number |
       | 0           |                    | 200         | 60                          |
+      | 10          | 5                  | 200         | 5                           |
+      | 60          | 10                 | 200         | 10                          |
